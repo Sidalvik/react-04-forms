@@ -1,6 +1,7 @@
 import './App.css';
 import Separator from './components/Separator/Separator';
 import Hex2Rgb from './components/Hex2Rgb/Hex2Rgb';
+import Steps from './components/Steps/Steps';
 
 function App() {
   return (
@@ -11,11 +12,12 @@ function App() {
         <Hex2Rgb/>
       </div>
       <Separator/>
-      {/* <div className='task-2' id='task-2'>
+      <div className='task-2' id='task-2'>
         <h2>Задание 2. "Учёт тренировок (steps)"</h2>
+        <Steps/>
       </div>
       <Separator/>
-      <div className='task-3' id='task-3'>
+      {/* <div className='task-3' id='task-3'>
         <h2>Задание 3. "Менеджер фото (photo)"</h2>
       </div> */}
     </div>
