@@ -1,0 +1,26 @@
+.task-1 .Hex2Rgb {
+    min-height: 30vh;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    background-color: #e9e9e9;
+}
+
+.task-1 .Hex2Rgb .wrap > * {
+    min-width: 10rem;
+    min-height: 2rem;
+    padding: 0.5em;
+    margin: 0.5em;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px #424242 solid;
+    outline-offset: 0;
+    outline-width: 3px;
+    outline-color: #00000044;
+}

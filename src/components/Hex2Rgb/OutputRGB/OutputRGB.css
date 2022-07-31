@@ -1,0 +1,8 @@
+.task-1 .Hex2Rgb .OutputRGB {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.task-1 .Hex2Rgb .OutputRGB p {
+    min-height: 1.5em;
+}
