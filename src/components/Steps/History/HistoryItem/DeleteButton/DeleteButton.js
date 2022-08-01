@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 function DeleteButton(props) {
     const {onClick: handleDelete} = props;
@@ -10,7 +10,7 @@ function DeleteButton(props) {
 }
 
 DeleteButton.propTypes = {
-    handleDelete: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 }
 
 

@@ -1,0 +1,9 @@
+.task-2 .NewStep {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.task-2 .NewStep * {
+    padding: 0.5em;
+}

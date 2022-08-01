@@ -4,52 +4,54 @@ import './Steps.css';
 import History from './History/History';
 import NewStep from './NewStep/NewStep';
 import DayDistance from '../../models/DayDistance';
-import { nanoid } from 'nanoid';
 
 function Steps(props) {
     const initHistory = [
-        new DayDistance(nanoid(), new Date('01.01.2022'), 10),
-        new DayDistance(nanoid(), new Date('10.01.2022'), 1.5),
-        new DayDistance(nanoid(), new Date('01.06.2022'), 13),
-        new DayDistance(),
+        new DayDistance(new Date('01.01.2022'), 10),
+        new DayDistance(new Date('10.01.2022'), 1.5),
+        new DayDistance(new Date('01.06.2022'), 13),
     ]
 
-    const [history, setHistory] = React.useState(initHistory);
+    const sortingFunc  = (a, b) => (b.date - a.date);
+    
+    const [history, setHistory] = React.useState(initHistory.sort(sortingFunc));
+    
+    const [newStep, setStep] = React.useState({date: '', distance: '0',});
 
     const addHistory = (date, distance) => {
-        console.log('addHistory');
-        console.log(date);
         setHistory((prevHistory) => {
-            let result;
-            console.log(prevHistory);
-
-            let index = prevHistory.findIndex((item) => (item.date - date) === 0);
-            console.log('index = ' + index);
+            let result  = [...prevHistory];
+            let index = prevHistory.findIndex((item) => (item.date.toLocaleDateString() === date.toLocaleDateString()));
             if (index === -1) {
-                result = [...prevHistory, new DayDistance(nanoid(), date, distance)]
+                result.push(new DayDistance(date, distance));
             } else {
-                result = [...prevHistory];
                 result[index].distance += +distance;
-                // result = prevHistory.map((item, idx) => new DayDistance(item.id, item.date, item.distance + idx === index ? distance : 0))
             }
-            result.sort((a, b) => Math.sign(b.date - a.date));
-            return result;
-        });
 
+            return result.sort(sortingFunc);
+        });
     }
 
     const deleteHistory = (id) => {
         setHistory((prevHistory) => prevHistory.filter((item) => item.id !== id));
     }
 
-    const editHistory = () => {
-        console.log('editHistory');
+    const editHistory = (id) => {
+        let  editItem = history.find((item) => item.id === id);
+
+        setStep(() => ({
+            date: editItem.date4html(),
+            distance: editItem.distance.toString()
+        }));
+
+        deleteHistory(id);
     }
+
 
   return (
     <div className='Steps'>
-        <NewStep addHistory={addHistory}/>
-        <History history={history} onDelete={deleteHistory}/>
+        <NewStep newStep={newStep} setStep={setStep} addHistory={addHistory}/>
+        <History history={history} onDelete={deleteHistory} onEdit={editHistory}/>
     </div>
   )
 }

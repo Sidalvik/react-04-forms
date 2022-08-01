@@ -9,7 +9,7 @@ function HistoryItem(props) {
   return (
     <tr>
         <td>{item.date?.toLocaleDateString()}</td>
-        <td>{item.distance}</td>
+        <td>{item.distance.toFixed(2)}</td>
         <td>
             <EditButton onClick={() => handleEdit(item.id)}/>
             <DeleteButton onClick={() => handleDelete(item.id)}/>
@@ -21,8 +21,9 @@ function HistoryItem(props) {
 
 HistoryItem.propTypes = {
     item: PropTypes.instanceOf(DayDistance).isRequired,
-    handleEdit: PropTypes.func.isRequired,
-    handleDelete: PropTypes.func.isRequired,
+    onEdit: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired,
 }
+
 
 export default HistoryItem

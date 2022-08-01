@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 function InputDate(props) {
     const {date, onChange: handelChange} = props;
@@ -11,7 +11,8 @@ function InputDate(props) {
 
 InputDate.propTypes = {
     date: PropTypes.string,
-    handelChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
 }
+
 
 export default InputDate

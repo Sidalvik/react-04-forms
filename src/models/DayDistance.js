@@ -9,12 +9,22 @@ class DayDistance {
         distance: PropTypes.number,
     }
 
-    constructor (id = nanoid(), date = new Date(), distance = 0) {
+    constructor (date = new Date(), distance = 0, id = nanoid()) {
         this.id = id;
-        this.date = date;
-        this.distance = +distance;
+        this.date = date instanceof Date ? date : new Date(date);
+        this.distance = Number.isNaN(distance) ? 0 : Number(distance);
+    }
+
+    date4html() {
+        if (!(this.date instanceof Date)) return;
+        const add0 = (a) => a < 10 ? '0' + a.toString() : a.toString();
+
+        let year = this.date.getFullYear().toString();
+        let month = this.date.getMonth() + 1;
+        let day = this.date.getDate();
+        return `${year}-${add0(month)}-${add0(day)}`;
     }
 }
 
-export default DayDistance;
 
+export default DayDistance;

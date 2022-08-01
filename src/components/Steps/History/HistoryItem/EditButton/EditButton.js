@@ -9,7 +9,8 @@ function EditButton(props) {
 }
 
 EditButton.propTypes = {
-    handleEdit: PropTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired,
 }
+
 
 export default EditButton

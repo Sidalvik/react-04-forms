@@ -1,0 +1,6 @@
+.task-2 .History,
+.task-2 .History td,
+.task-2 .History th {
+    border: 1px black solid;
+    text-align: center;
+}
