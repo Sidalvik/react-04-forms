@@ -2,6 +2,8 @@ import './App.css';
 import Separator from './components/Separator/Separator';
 import Hex2Rgb from './components/Hex2Rgb/Hex2Rgb';
 import Steps from './components/Steps/Steps';
+import Photo from './components/Photo/Photo';
+
 
 function App() {
   return (
@@ -17,9 +19,10 @@ function App() {
         <Steps/>
       </div>
       <Separator/>
-      {/* <div className='task-3' id='task-3'>
+      <div className='task-3' id='task-3'>
         <h2>Задание 3. "Менеджер фото (photo)"</h2>
-      </div> */}
+        <Photo/>
+      </div>
     </div>
   );
 }
