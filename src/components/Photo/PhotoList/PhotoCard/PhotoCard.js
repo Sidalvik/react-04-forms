@@ -2,20 +2,25 @@ import './PhotoCard.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 import CloseButton from './CloseButton/CloseButton';
-import PhotoImg from './PhotoImg/PhotoImg';
 
 
 function PhotoCard(props) {
+  const {card, onClose: handleClickCloseCard} = props;
   return (
     <div className='PhotoCard'>
-      <CloseButton/>
-      <PhotoImg/>
+      <CloseButton onClose={() => handleClickCloseCard(card.id)}/>
+      <img src={card.src} alt=''/>
     </div>
   )
 }
 
+
 PhotoCard.propTypes = {
-    props: PropTypes.any,
+    card: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      src: PropTypes.string.isRequired,
+    }).isRequired,
+    onClose: PropTypes.func.isRequired,
 }
 
 export default PhotoCard

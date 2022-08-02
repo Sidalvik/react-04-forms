@@ -5,7 +5,7 @@ function DeleteButton(props) {
     const {onClick: handleDelete} = props;
 
   return (
-    <button onClick = {handleDelete}>✘</button>
+    <button type='button' onClick = {handleDelete}>✘</button>
   )
 }
 

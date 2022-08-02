@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function CloseButton(props) {
+  const {onClose: handleClose} = props;
   return (
-    <div className='CloseButton'>CloseButton</div>
+    <button type='button' className='CloseButton' onClick = {handleClose}>✘</button>
   )
 }
 
 CloseButton.propTypes = {
-    props: PropTypes.any,
+  onClose: PropTypes.func.isRequired,
 }
 
 export default CloseButton
